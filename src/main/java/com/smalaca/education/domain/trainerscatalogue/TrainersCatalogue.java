@@ -1,8 +1,8 @@
 package com.smalaca.education.domain.trainerscatalogue;
 
-import java.util.UUID;
+import com.smalaca.education.domain.authorid.AuthorId;
 
 // secondary port
 public interface TrainersCatalogue {
-    boolean isQualified(UUID authorId);
+    boolean isNotQualified(AuthorId authorId);
 }

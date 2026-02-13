@@ -1,9 +1,8 @@
 package com.smalaca.education.adapters.secondary.trainerscatalogue;
 
+import com.smalaca.education.domain.authorid.AuthorId;
 import com.smalaca.education.domain.trainerscatalogue.TrainersCatalogue;
 import com.smalaca.trainerscatalogue.view.TrainersCatalogueApi;
-
-import java.util.UUID;
 
 // secondary adapter
 public class TrainersCatalogueClient implements TrainersCatalogue {
@@ -14,7 +13,7 @@ public class TrainersCatalogueClient implements TrainersCatalogue {
     }
 
     @Override
-    public boolean isQualified(UUID authorId) {
+    public boolean isNotQualified(AuthorId authorId) {
         return trainersCatalogueApi.isQualified(authorId);
     }
 }

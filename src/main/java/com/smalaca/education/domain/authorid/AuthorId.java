@@ -6,7 +6,7 @@ import java.util.UUID;
 public class AuthorId {
     private final UUID authorId;
 
-    AuthorId(UUID authorId) {
+    public AuthorId(UUID authorId) {
         this.authorId = authorId;
     }
 
