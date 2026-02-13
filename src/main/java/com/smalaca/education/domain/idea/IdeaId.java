@@ -6,7 +6,17 @@ import java.util.UUID;
 public class IdeaId {
     private final UUID ideaId;
 
-    public IdeaId(UUID ideaId) {
+    private IdeaId(UUID ideaId) {
         this.ideaId = ideaId;
+    }
+
+    // factory
+    public static IdeaId createNew() {
+        return new IdeaId(UUID.randomUUID());
+    }
+
+    // factory
+    public static IdeaId existing(UUID ideaId) {
+        return new IdeaId(ideaId);
     }
 }

@@ -16,8 +16,17 @@ public class IdeaRestController {
         this.ideaApplicationService = ideaApplicationService;
     }
 
+    // OPTION 1
+//    @PostMapping("{@authorId}")
+//    public void register(@PathVariable UUID authorId) {
+//        UUID ideaId = UUID.randomUUID();
+//        ideaApplicationService.register(authorId, ideaId);
+//        return ideaId;
+//    }
+
+    // OPTION 2
     @PostMapping("{@authorId}")
-    public void register(@PathVariable UUID authorId) {
-        ideaApplicationService.register(authorId);
+    public UUID register(@PathVariable UUID authorId) {
+        return ideaApplicationService.register(authorId);
     }
 }

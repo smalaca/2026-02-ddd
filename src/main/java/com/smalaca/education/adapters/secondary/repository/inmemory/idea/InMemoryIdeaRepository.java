@@ -5,12 +5,13 @@ import com.smalaca.education.domain.idea.IdeaId;
 import com.smalaca.education.domain.idea.IdeaRepository;
 
 import java.util.Optional;
+import java.util.UUID;
 
 // secondary adapter
 public class InMemoryIdeaRepository implements IdeaRepository {
     @Override
-    public void save(Idea idea) {
-
+    public UUID save(Idea idea) {
+        return null;
     }
 
     @Override

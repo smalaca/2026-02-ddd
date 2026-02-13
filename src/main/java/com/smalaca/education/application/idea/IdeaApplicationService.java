@@ -16,7 +16,7 @@ public class IdeaApplicationService {
 
     @Transactional
     // primary port
-    public void register(UUID authorId) {
+    public UUID register(UUID authorId) {
         // 1. tłumaczenie na język domeny - 0 - *
         AuthorId authorIdVO = new AuthorId(authorId);
 
@@ -24,13 +24,15 @@ public class IdeaApplicationService {
         Idea idea = Idea.create(authorIdVO);
 
         // 3. zapis informacji - 1 - *
-        ideaRepository.save(idea);
+        return ideaRepository.save(idea);
+        // OPTION 3
+//        return idea.getId();
     }
 
     // primary port
     public void approve(UUID ideaId) {
         // 1. tłumaczenie na język domeny - 0 - *
-        IdeaId ideaIdVO = new IdeaId(ideaId);
+        IdeaId ideaIdVO = IdeaId.existing(ideaId);
         Idea idea = ideaRepository.findBy(ideaIdVO);
 
         // 2. wywołanie metody z domeny - 1
