@@ -1,5 +1,7 @@
 package com.smalaca.education.domain.idea;
 
+import com.smalaca.education.domain.idea.commands.RegisterIdeaDomainCommand;
+
 // aggregate root
 // entity
 public class Idea {
@@ -8,18 +10,22 @@ public class Idea {
     // id biznesowy
     private final IdeaCode ideaCode;
     private final AuthorId authorId;
+    private final String title;
+    private final String description;
 
-    private Idea(IdeaCode ideaCode, IdeaId ideaId, AuthorId authorId) {
+    private Idea(IdeaCode ideaCode, IdeaId ideaId, AuthorId authorId, String title, String description) {
         this.ideaCode = ideaCode;
         this.ideaId = ideaId;
         this.authorId = authorId;
+        this.title = title;
+        this.description = description;
     }
 
     // factory
-    public static Idea create(AuthorId authorId) {
-        IdeaCode ideaCode = IdeaCode.from(authorId);
+    public static Idea create(RegisterIdeaDomainCommand command) {
+        IdeaCode ideaCode = IdeaCode.from(command.authorId());
         IdeaId ideaId = IdeaId.createNew();
-        return new Idea(ideaCode, ideaId, authorId);
+        return new Idea(ideaCode, ideaId, command.authorId(), command.title(), command.description());
     }
 
     public void approve() {

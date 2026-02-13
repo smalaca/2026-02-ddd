@@ -1,8 +1,9 @@
 package com.smalaca.education.adapters.primary.rest.idea;
 
 import com.smalaca.education.application.idea.IdeaApplicationService;
-import org.springframework.web.bind.annotation.PathVariable;
+import com.smalaca.education.application.idea.RegisterIdeaCommand;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.UUID;
@@ -25,8 +26,14 @@ public class IdeaRestController {
 //    }
 
     // OPTION 2
-    @PostMapping("{@authorId}")
-    public UUID register(@PathVariable UUID authorId) {
-        return ideaApplicationService.register(authorId);
+    @PostMapping
+    public UUID register(@RequestBody IdeaDto dto) {
+        renewSession(dto.sessionId());
+
+        return ideaApplicationService.register(dto.asCommand());
+    }
+
+    private void renewSession(UUID sessionId) {
+        // ...
     }
 }

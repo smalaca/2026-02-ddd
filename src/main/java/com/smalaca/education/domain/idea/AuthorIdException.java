@@ -2,15 +2,10 @@ package com.smalaca.education.domain.idea;
 
 import java.util.UUID;
 
-// value object
-public class AuthorId {
+class AuthorIdException extends RuntimeException {
     private final UUID authorId;
 
-    AuthorId(UUID authorId) {
+    AuthorIdException(UUID authorId) {
         this.authorId = authorId;
-    }
-
-    String getAsString() {
-        return authorId.toString();
     }
 }

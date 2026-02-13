@@ -1,6 +1,7 @@
 package com.smalaca.education.application.idea;
 
 import com.smalaca.education.domain.idea.*;
+import com.smalaca.education.domain.idea.commands.RegisterIdeaDomainCommand;
 import jakarta.transaction.Transactional;
 
 import java.util.UUID;
@@ -9,19 +10,22 @@ import java.util.UUID;
 // application layer
 public class IdeaApplicationService {
     private final IdeaRepository ideaRepository;
+    private final AuthorIdFactory authorIdFactory;
 
-    public IdeaApplicationService(IdeaRepository ideaRepository) {
+    public IdeaApplicationService(IdeaRepository ideaRepository, AuthorIdFactory authorIdFactory) {
         this.ideaRepository = ideaRepository;
+        this.authorIdFactory = authorIdFactory;
     }
 
     @Transactional
     // primary port
-    public UUID register(UUID authorId) {
+    public UUID register(RegisterIdeaCommand command) {
         // 1. tłumaczenie na język domeny - 0 - *
-        AuthorId authorIdVO = new AuthorId(authorId);
+        AuthorId authorId = authorIdFactory.create(command.authorId());
+        RegisterIdeaDomainCommand domainCommand = new RegisterIdeaDomainCommand(authorId, command.title(), command.description());
 
         // 2. wywołanie metody z domeny - 1
-        Idea idea = Idea.create(authorIdVO);
+        Idea idea = Idea.create(domainCommand);
 
         // 3. zapis informacji - 1 - *
         return ideaRepository.save(idea);
