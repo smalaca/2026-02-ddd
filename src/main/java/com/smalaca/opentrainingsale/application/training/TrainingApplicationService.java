@@ -1,10 +1,7 @@
 package com.smalaca.opentrainingsale.application.training;
 
-import com.smalaca.opentrainingsale.domain.training.Training;
-import com.smalaca.opentrainingsale.domain.training.TrainingDefinitionId;
-import com.smalaca.opentrainingsale.domain.training.TrainingRepository;
-
-import java.util.UUID;
+import com.smalaca.opentrainingsale.domain.training.*;
+import com.smalaca.opentrainingsale.domain.training.commands.AddTrainingDomainCommand;
 
 // application layer
 public class TrainingApplicationService {
@@ -15,10 +12,14 @@ public class TrainingApplicationService {
     }
 
     // primary port
-    public void add(UUID trainingDefinitionId) {
-        TrainingDefinitionId trainingDefinitionIdVO = new TrainingDefinitionId(trainingDefinitionId);
+    public void add(AddTrainingCommand command) {
+        TrainingDefinitionId trainingDefinitionId = new TrainingDefinitionId(command.trainingDefinitionId());
+        TrainerId trainerId = new TrainerId(command.trainerId());
+        Price price = Price.from(command.price());
+        Period period = Period.from(command.startDate(), command.endDate());
+        AddTrainingDomainCommand addTrainingDomainCommand = new AddTrainingDomainCommand(trainingDefinitionId, trainerId, price, period);
 
-        Training training = new Training(trainingDefinitionIdVO);
+        Training training = new TrainingFactory().create(addTrainingDomainCommand);
 
         trainingRepository.save(training);
     }
