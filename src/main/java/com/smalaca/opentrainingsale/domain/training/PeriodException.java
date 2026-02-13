@@ -6,6 +6,8 @@ class PeriodException extends RuntimeException {
     private LocalDate startDate;
     private LocalDate endDate;
 
+    private PeriodException() {}
+
     public static RuntimeException startDateFromPast(LocalDate startDate) {
         PeriodException periodException = new PeriodException();
         periodException.startDate = startDate;
