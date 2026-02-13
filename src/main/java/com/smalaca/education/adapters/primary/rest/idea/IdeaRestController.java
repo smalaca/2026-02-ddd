@@ -1,6 +1,7 @@
 package com.smalaca.education.adapters.primary.rest.idea;
 
 import com.smalaca.education.application.idea.IdeaApplicationService;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -15,8 +16,8 @@ public class IdeaRestController {
         this.ideaApplicationService = ideaApplicationService;
     }
 
-    @PostMapping
-    public void register(UUID authorId) {
+    @PostMapping("{@authorId}")
+    public void register(@PathVariable UUID authorId) {
         ideaApplicationService.register(authorId);
     }
 }
