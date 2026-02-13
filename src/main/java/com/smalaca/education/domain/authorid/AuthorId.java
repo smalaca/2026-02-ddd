@@ -13,4 +13,8 @@ public class AuthorId {
     public String getAsString() {
         return authorId.toString();
     }
+
+    public UUID get() {
+        return authorId;
+    }
 }

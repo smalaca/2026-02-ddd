@@ -14,6 +14,6 @@ public class TrainersCatalogueClient implements TrainersCatalogue {
 
     @Override
     public boolean isNotQualified(AuthorId authorId) {
-        return trainersCatalogueApi.isQualified(authorId);
+        return trainersCatalogueApi.isQualified(authorId.get());
     }
 }
