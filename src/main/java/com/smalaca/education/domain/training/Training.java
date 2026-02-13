@@ -7,4 +7,13 @@ public class Training {
     private TrainingId trainingId;
     private DraftId draftId;
     private AuthorId authorId;
+    private TrainerId trainerId;
+
+    TrainerId getTrainer() {
+        return trainerId;
+    }
+
+    void changeTrainer(TrainerId trainerId) {
+        this.trainerId = trainerId;
+    }
 }

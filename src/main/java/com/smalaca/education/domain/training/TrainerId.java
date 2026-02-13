@@ -1,5 +1,5 @@
 package com.smalaca.education.domain.training;
 
 // value object
-public class TrainingId {
+public class TrainerId {
 }
