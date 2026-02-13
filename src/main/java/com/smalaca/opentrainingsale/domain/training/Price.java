@@ -12,6 +12,10 @@ public class Price {
 
     // factory
     public static Price from(BigDecimal price) {
+        if (BigDecimal.ZERO.compareTo(price) > 0) {
+            throw new PriceException(price);
+        }
+
         return new Price(price);
     }
 }
