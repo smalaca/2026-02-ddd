@@ -1,4 +1,6 @@
-package com.smalaca.education.domain.idea;
+package com.smalaca.education.domain.authorid;
+
+import com.smalaca.education.domain.trainerscatalogue.TrainersCatalogue;
 
 import java.util.UUID;
 

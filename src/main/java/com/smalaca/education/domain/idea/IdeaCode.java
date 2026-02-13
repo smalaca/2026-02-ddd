@@ -1,5 +1,7 @@
 package com.smalaca.education.domain.idea;
 
+import com.smalaca.education.domain.authorid.AuthorId;
+
 import java.time.LocalDateTime;
 
 // value object

@@ -1,5 +1,6 @@
 package com.smalaca.education.domain.idea;
 
+import com.smalaca.education.domain.authorid.AuthorId;
 import com.smalaca.education.domain.idea.commands.RegisterIdeaDomainCommand;
 
 // aggregate root
@@ -10,6 +11,7 @@ public class Idea {
     // id biznesowy
     private final IdeaCode ideaCode;
     private final AuthorId authorId;
+
     private final String title;
     private final String description;
 

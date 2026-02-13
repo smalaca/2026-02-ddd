@@ -1,6 +1,6 @@
 package com.smalaca.education.adapters.secondary.trainerscatalogue;
 
-import com.smalaca.education.domain.idea.TrainersCatalogue;
+import com.smalaca.education.domain.trainerscatalogue.TrainersCatalogue;
 import com.smalaca.trainerscatalogue.view.TrainersCatalogueApi;
 
 import java.util.UUID;

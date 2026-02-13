@@ -1,5 +1,7 @@
 package com.smalaca.education.application.idea;
 
+import com.smalaca.education.domain.authorid.AuthorId;
+import com.smalaca.education.domain.authorid.AuthorIdFactory;
 import com.smalaca.education.domain.idea.*;
 import com.smalaca.education.domain.idea.commands.RegisterIdeaDomainCommand;
 import jakarta.transaction.Transactional;

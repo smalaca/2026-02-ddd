@@ -1,4 +1,4 @@
-package com.smalaca.education.domain.idea;
+package com.smalaca.education.domain.authorid;
 
 import java.util.UUID;
 
@@ -10,7 +10,7 @@ public class AuthorId {
         this.authorId = authorId;
     }
 
-    String getAsString() {
+    public String getAsString() {
         return authorId.toString();
     }
 }
