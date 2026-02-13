@@ -4,4 +4,6 @@ package com.smalaca.opentrainingsale.domain.training;
 // secondary port
 public interface TrainingRepository {
     void save(Training training);
+
+    Training findById(TrainingId trainingId);
 }
