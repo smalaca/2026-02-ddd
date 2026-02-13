@@ -14,6 +14,15 @@ public class Period {
 
     // factory
     public static Period from(LocalDate startDate, LocalDate endDate) {
+        LocalDate now = LocalDate.now();
+        if (startDate.isBefore(now)) {
+            throw PeriodException.startDateFromPast(startDate);
+        }
+
+        if (endDate.isBefore(startDate)) {
+            throw PeriodException.endDateBeforeStartDate(startDate, endDate);
+        }
+
         return new Period(startDate, endDate);
     }
 }
