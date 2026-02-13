@@ -9,4 +9,8 @@ public class AuthorId {
     public AuthorId(UUID authorId) {
         this.authorId = authorId;
     }
+
+    String getAsString() {
+        return authorId.toString();
+    }
 }
