@@ -8,8 +8,6 @@ import java.util.Optional;
 
 // secondary adapter
 public class InMemoryIdeaRepository implements IdeaRepository {
-//    private final IdeaOrmRepository ideaOrmRepository;
-
     @Override
     public void save(Idea idea) {
 
